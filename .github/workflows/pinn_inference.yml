@@ -3,12 +3,8 @@ name: PINN Inference Pipeline
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'F1/**'
   pull_request:
     branches: [ main ]
-    paths:
-      - 'F1/**'
   workflow_dispatch:
 
 jobs:
