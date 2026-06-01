@@ -12,6 +12,7 @@
 !.gitignore
 !.github/
 !.github/**
+!README.md
 
 # C++ Boundary Extractor
 !F1/C++/boundary_extractor/include/
