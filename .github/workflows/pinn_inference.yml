@@ -25,8 +25,8 @@ jobs:
           mkdir -p pipeline_output
           # We mount the baked STL as input, and the pipeline_output dir as output
           docker run --rm \
-            -v ${{ github.workspace }}/F1/STL\ Files/F1_FrontWing_Parametric_2.stl:/app/input/wing.stl \
-            -v ${{ github.workspace }}/pipeline_output:/app/output \
+            -v "${{ github.workspace }}/F1/STL Files/F1_FrontWing_Parametric_2.stl:/app/input/wing.stl" \
+            -v "${{ github.workspace }}/pipeline_output:/app/output" \
             f1-pinn-pipeline
 
       - name: Upload Pressure Field Artifact
