@@ -1,0 +1,54 @@
+{
+  "wing_parameters": {
+    "c1": 300.0,
+    "c2": 180.0,
+    "c3": 120.0,
+    "alpha1": 3.0,
+    "alpha2": 18.0,
+    "alpha3": 28.0,
+    "g12": 15.0,
+    "g23": 12.0,
+    "ov12": 10.0,
+    "ov23": 8.0,
+    "b": 950.0,
+    "RH": 60.0,
+    "h_ep": 380.0,
+    "t_ep": 4.0,
+    "ep_fillet_r": 5.0
+  },
+  "elements": {
+    "main": {
+      "profile": "NACA63412",
+      "source_dat": "main_plane_63412.dat",
+      "chord_mm": 300.0,
+      "upper_pts": 26,
+      "lower_pts": 26,
+      "loop_pts": 50,
+      "t_max_norm": 0.1205,
+      "camber_max_norm": 0.022,
+      "valid": true
+    },
+    "flap1": {
+      "profile": "NACA4412",
+      "source_dat": "flap_4412.dat",
+      "chord_mm": 180.0,
+      "upper_pts": 18,
+      "lower_pts": 18,
+      "loop_pts": 34,
+      "t_max_norm": 0.1268,
+      "camber_max_norm": 0.04,
+      "valid": true
+    },
+    "flap2": {
+      "profile": "NACA4412",
+      "source_dat": "flap_4412.dat",
+      "chord_mm": 120.0,
+      "upper_pts": 18,
+      "lower_pts": 18,
+      "loop_pts": 34,
+      "t_max_norm": 0.1268,
+      "camber_max_norm": 0.04,
+      "valid": true
+    }
+  }
+}

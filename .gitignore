@@ -1,0 +1,51 @@
+# Ignore everything by default
+*
+
+# Allow directories to be traversed so Git can find the included files
+!*/
+
+# -------------------------------------
+# EXPLICITLY INCLUDE CAPSTONE FILES
+# -------------------------------------
+
+# Root config
+!.gitignore
+!.github/
+!.github/**
+
+# C++ Boundary Extractor
+!F1/C++/boundary_extractor/include/
+!F1/C++/boundary_extractor/include/**
+!F1/C++/boundary_extractor/src/
+!F1/C++/boundary_extractor/src/**
+!F1/C++/boundary_extractor/Makefile
+
+# PyTorch PINN
+!F1/pinn/
+!F1/pinn/**
+
+# STL and NX CAD files
+!F1/STL Files/
+!F1/STL Files/**
+!F1/NX/
+!F1/NX/**
+!F1/DAT files/
+!F1/DAT files/**
+
+# Docker Pipeline
+!F1/Dockerfile
+!F1/run_pipeline.sh
+
+# -------------------------------------
+# RE-IGNORE GENERATED BUILD ARTIFACTS
+# -------------------------------------
+F1/C++/boundary_extractor/boundary_extractor.exe
+F1/C++/boundary_extractor/output/
+F1/pinn/output/*
+!F1/pinn/output/pinn_weights.pt
+F1/output/
+pipeline_output/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

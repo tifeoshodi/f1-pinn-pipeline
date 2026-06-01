@@ -1,0 +1,42 @@
+name: PINN Inference Pipeline
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'F1/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'F1/**'
+  workflow_dispatch:
+
+jobs:
+  run-inference:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: |
+          cd F1
+          docker build -t f1-pinn-pipeline -f Dockerfile .
+
+      - name: Run Inference Pipeline
+        run: |
+          mkdir -p pipeline_output
+          # We mount the baked STL as input, and the pipeline_output dir as output
+          docker run --rm \
+            -v ${{ github.workspace }}/F1/STL\ Files/F1_FrontWing_Parametric_2.stl:/app/input/wing.stl \
+            -v ${{ github.workspace }}/pipeline_output:/app/output \
+            f1-pinn-pipeline
+
+      - name: Upload Pressure Field Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pressure-field-results
+          path: |
+            pipeline_output/boundary_points.json
+            pipeline_output/pressure_field.json
